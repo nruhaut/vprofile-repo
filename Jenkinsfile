@@ -28,6 +28,11 @@ pipeline {
             steps {
                 sh 'mvn checkstyle:checkstyle'
             }
+            post {
+                    always {
+                        recordIssues enabledForFailure: true, tool: checkStyle()
+                    }
+            }
         }
 
         stage('Test'){
