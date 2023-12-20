@@ -24,14 +24,14 @@ pipeline {
             }
         }
 
-        stage('Checkstyle Analysis'){
+        stage('Checkstyle Analysis') {
             steps {
                 sh 'mvn checkstyle:checkstyle'
             }
             post {
-                    always {
-                        recordIssues enabledForFailure: true, tool: checkStyle()
-                    }
+                always {
+                    recordIssues enabledForFailure: true, tool: checkStyle()
+                }
             }
         }
 
